@@ -3,12 +3,11 @@ package com.example.kafkaexample
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.Bean
 import org.springframework.kafka.core.KafkaTemplate
 
 @SpringBootApplication
 class KafkaExampleApplication {
-    @Bean
+    // @Bean
     fun run(kafkaTemplate: KafkaTemplate<String, String>): CommandLineRunner {
         return CommandLineRunner {
             (1..100).forEach {
