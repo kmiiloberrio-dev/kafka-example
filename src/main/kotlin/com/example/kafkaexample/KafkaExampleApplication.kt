@@ -7,11 +7,13 @@ import org.springframework.context.annotation.Bean
 import org.springframework.kafka.core.KafkaTemplate
 
 @SpringBootApplication
-class KafkaExampleApplication{
+class KafkaExampleApplication {
     @Bean
     fun run(kafkaTemplate: KafkaTemplate<String, String>): CommandLineRunner {
         return CommandLineRunner {
-            kafkaTemplate.send("local-kafka-topic", "Hello Kafka!")
+            (1..100).forEach {
+                kafkaTemplate.send("local-kafka-topic", "Hello Kafka! $it")
+            }
         }
     }
 }
